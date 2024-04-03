@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Agregar modulos del proyectos
+    'clientes',
+    'ventas',
 ]
 
 MIDDLEWARE = [
