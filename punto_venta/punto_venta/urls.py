@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ventas.urls')),
-    path('clientes/', include('clientes.urls')),
+    #path('clientes/', include('clientes.urls')),
 ]
 
 #PARTE DONDE SE AGREGARA TODOS LOS ARCHIVOS MULTIMEDIA
