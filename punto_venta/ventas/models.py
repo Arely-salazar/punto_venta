@@ -39,7 +39,7 @@ class Producto(models.Model):
 
 class detalle_Venta(models.Model):
     id_detalle_venta = models.CharField(max_length=50, unique=True, null=False)
-    venta = models.ForeignKey('Venta', on_delete=models.CASCADE)
+    venta = models.ForeignKey('Ventas', on_delete=models.CASCADE)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     precio_unitario =  models.DecimalField(max_digits=15, decimal_places=2, null= False)
     cantidad =  models.CharField(max_length=50, null=False)
@@ -53,13 +53,12 @@ class detalle_Venta(models.Model):
         verbose_name_plural = 'Detalles de Ventas'
 
     def __str__(self):
-        return self.id_detalle_venta
+        return self.id_detalle_Venta
 
     
 class Rol(models.Model):
     id_rol = models.CharField(max_length=50, unique=True, null=False)
     rol =  models.CharField(max_length=255, null=False)
-    ubicacion =  models.CharField(max_length=255, null=False)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
 
@@ -71,7 +70,7 @@ class Rol(models.Model):
         return self.rol
 
 class Ventas(models.Model):
-    id_venta = models.CharField(max_length=50, unique=True, null=False)
+    id_Venta = models.CharField(max_length=50, unique=True, null=False)
     clave_transaccion =  models.CharField(max_length=255, null=False)
     paypal_datos =  models.CharField(max_length=255, null=False)
     fecha_venta = models.DateField(null=False)
@@ -86,6 +85,6 @@ class Ventas(models.Model):
         verbose_name_plural = 'Ventas'
 
     def __str__(self):
-        return self.id_venta
+        return self.id_Venta
 
   
