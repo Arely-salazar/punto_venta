@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+
     <div class="principal">
 
         <div class="registro">
@@ -18,9 +19,9 @@
             <p class="normal">¿Necesitas una cuenta?</p>
             <button type="submit" class="btn btn-primary">Crear cuenta</button>
         </div>
-
+        
         <div class="inicio">
-            <form class="form" action="{% url 'Clientes' %}" method="post">
+            <form class="form" method="POST">
                 {% csrf_token %}
 
 
@@ -28,12 +29,13 @@
                     
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Matricula:</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput">
+                            <input type="text" class="form-control" id="idusername" name="username" required="">
+                            
                         </div>
 
                         <div class="mb-3">
                             <label for="formGroupExampleInput2" class="form-label">Contraseña:</label>
-                            <input type="password" class="form-control" id="formGroupExampleInput2">
+                            <input type="password" class="form-control" id="id_password" name="password" required="">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Ingresar</button>

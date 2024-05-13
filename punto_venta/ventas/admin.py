@@ -10,8 +10,40 @@ class UsuarioAdmin(admin.ModelAdmin):
     list_filter = ()
     fieldsets = ()
 
+class ProductoAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'precio', 'cantidad')
+    search_fields = ('nombre', 'descripcion')
+    readonly_fields = ('created', 'updated')
+    filter_horizontal = ()
+    list_filter = ()
+    fieldsets = ()
+
+class DetalleVentaAdmin(admin.ModelAdmin):
+    list_display = ('id_detalle_venta', 'venta', 'producto')
+    search_fields = ('id_detalle_venta', 'venta__id_venta', 'producto__descripcion')
+    readonly_fields = ('created', 'updated')
+    filter_horizontal = ()
+    list_filter = ()
+    fieldsets = ()
+
+class RolAdmin(admin.ModelAdmin):
+    list_display = ('id_rol', 'rol')
+    search_fields = ['rol']
+    readonly_fields = ('created', 'updated')
+    filter_horizontal = ()
+    list_filter = ()
+    fieldsets = ()
+
+class VentasAdmin(admin.ModelAdmin):
+    list_display = ('id_Venta', 'fecha_venta', 'total')
+    search_fields = ['id_Venta']
+    readonly_fields = ('created', 'updated')
+    filter_horizontal = ()
+    list_filter = ()
+    fieldsets = ()
+
 admin.site.register(Usuario, UsuarioAdmin)
-admin.site.register(Producto)
-admin.site.register(detalle_Venta)
-admin.site.register(Rol)
-admin.site.register(Ventas)
+admin.site.register(Producto,ProductoAdmin)
+admin.site.register(detalle_Venta, DetalleVentaAdmin)
+admin.site.register(Rol, RolAdmin)
+admin.site.register(Ventas, VentasAdmin)
